@@ -7,6 +7,14 @@ document.body.appendChild(boton);
 
 let pCambiar = document.getElementById("p-ej1");
 
+let presionado = true;
 boton.addEventListener("click", () => {
-    pCambiar.textContent = "Texto cambiado";
+    // 4.	Anterior ejercicio, pero que al volver a hacer click vuelva al texto anterior (alternadamente)
+    if (presionado) {
+        pCambiar.textContent = "Texto cambiado";
+        presionado = false;
+    } else {
+        pCambiar.textContent = "Texto original";
+        presionado = true;
+    }
 });
