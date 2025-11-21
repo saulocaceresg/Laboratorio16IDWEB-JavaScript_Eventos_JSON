@@ -71,3 +71,34 @@ botonMenos.addEventListener("click", () => {
     }
 
 });
+
+// 7.	Agregar y eliminar elementos de una lista: permitir al usuario ingresar texto en un <input> y añadirlo como <li> dentro de una lista. Incluir un botón para borrar el último elemento
+
+console.log("Ejercicio 5(7.)\nAgregando elementos en ul")
+
+const inputEj5 = document.getElementById("input-ej5");
+let botonAgregar = document.getElementById("btn-ej5");
+let lista = document.getElementById("ul-ej5");
+
+botonAgregar.addEventListener("click", () => {
+    let botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    let texto = inputEj5.value;
+    console.log("Contenido del input: ["+ texto + "]");
+
+    if (inputEj5.value.length === 0) {
+        alert("Ingrese texto");
+    } else {
+        let li = document.createElement("li");
+        li.textContent = texto + " ";
+        li.appendChild(botonEliminar);
+        document.querySelector("#ul-ej5").appendChild(li);
+        inputEj5.value = "";
+    }
+});
+
+lista.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+        e.target.parentElement.remove();
+    }
+});
