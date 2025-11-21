@@ -18,3 +18,12 @@ boton.addEventListener("click", () => {
         presionado = true;
     }
 });
+
+// 5.	Manipular clases CSS: que un botón active/desactive una clase “oscuro” en body para simular modo oscuro
+
+let botonOscuro = document.getElementById("oscuro");
+let body = document.body;
+
+botonOscuro.addEventListener("click", () => {
+    body.classList.toggle("oscuro");
+});
