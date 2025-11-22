@@ -102,3 +102,40 @@ lista.addEventListener("click", (e) => {
         e.target.parentElement.remove();
     }
 });
+
+// 8.	Validar formulario con DOM: validar que los campos “nombre” y “correo” no estén vacíos. Si hay error, mostrar mensajes debajo del input usando createElement("span") con estilo rojo
+
+console.log("Ejercicio 6 (8.)\nValidar formulario")
+
+let nombre = document.getElementById("nombre");
+let email = document.getElementById("correo");
+let inputEj6 = document.getElementById("input-ej6");
+
+inputEj6.addEventListener("click", () => {
+    let valorNombre = nombre.value;
+    let valorEmail = email.value;
+    let arrayNombre = Array.from(valorNombre);
+    let validoNombre = true;
+    let validoEmail = true;
+
+    for (const i of arrayNombre) {
+        if (!isNaN(i)) {
+            validoNombre = false;
+            break;
+        }
+    }
+
+    if (!valorEmail.includes("@")) {
+        validoEmail = false
+    }
+
+    if (!validoNombre) {
+        alert("NOMBRE NO VÁLIDO.\nINGRESE DE NUEVO.");
+    }
+
+    if (!validoEmail) {
+        alert("E-MAIL NO VÁLIDO.\nINGRESE DE NUEVO");
+    }
+
+    console.log("Nombre: " + validoNombre + "\nEmail: " + validoEmail);
+});
