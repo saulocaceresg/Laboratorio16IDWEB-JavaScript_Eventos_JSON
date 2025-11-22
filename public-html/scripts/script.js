@@ -139,3 +139,33 @@ inputEj6.addEventListener("click", () => {
 
     console.log("Nombre: " + validoNombre + "\nEmail: " + validoEmail);
 });
+
+// 9.	Galería con miniaturas: crear una galería donde al hacer clic en una miniatura (img) se muestre la imagen grande en un <div> principal
+
+console.log("Ejercicio 7 (9.)\nGalería con miniaturas");
+
+let divImagenes = document.getElementById("imagenes-ej7");
+let aparecerDiv = true; // Bandera para aparecer div de la imagen centrla
+let divCentral = document.createElement("div");
+
+divImagenes.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") { // Detecta un click en un img
+        divCentral.innerHTML = "";
+        let imagen = e.target.cloneNode();
+        imagen.style.width = "250px";
+        imagen.style.height = "300px";
+        divCentral.appendChild(imagen); // Se inserta la img clonada en el div
+    }
+
+    divCentral.style.textAlign = "center";
+
+    // La bandera funciona más como 1 y 0. Si es false, borra el anterior -donde era true- para agregar la nueva imagen
+    if (aparecerDiv) {
+        document.querySelector("#oscuro").after(divCentral); // El div central se posiciona debaje del botón de modo oscuro
+        aparecerDiv = false;
+    } else {
+        divCentral.remove();
+        document.querySelector("#oscuro").after(divCentral);
+        aparecerDiv = true;
+    }
+});
