@@ -23,7 +23,7 @@ boton.addEventListener("click", () => {
 
 let botonOscuro = document.getElementById("oscuro");
 let body = document.body;
-
+body.classList.toggle("oscuro");
 botonOscuro.addEventListener("click", () => {
     body.classList.toggle("oscuro");
 });
@@ -169,3 +169,52 @@ divImagenes.addEventListener("click", (e) => {
         aparecerDiv = true;
     }
 });
+
+// 10.	Tabla dinámica desde JavaScript: generar una tabla HTML al presionar un botón, a partir de un arreglo de objetos
+// const productos = [ 
+// { nombre: "Laptop", precio: 3500 }, 
+// { nombre: "Mouse", precio: 80 }, 
+// ];
+
+console.log("Ejercicio 8 (10.)\nTabla dinámica");
+
+const productos = [
+    { nombre: "Laptop", precio: 3500 },
+    { nombre: "Mouse", precio: 80 }
+];
+
+let botonTabla = document.getElementById("btn-ej8");
+
+botonTabla.addEventListener("click", () => {
+    let tabla = document.createElement("table");
+    tabla.setAttribute("border", 1);
+
+    let tr = document.createElement("tr");
+    
+    let thNombre = document.createElement("th");
+    thNombre.textContent = "Nombre";
+    let thPrecio = document.createElement("th");
+    thPrecio.textContent = "Precio";
+    
+    tr.appendChild(thNombre);
+    tr.appendChild(thPrecio);
+    
+    tabla.appendChild(tr);
+
+    for (let i = 0; i < productos.length; i++) {
+        let tr = document.createElement("tr");
+        
+        let tdNombre = document.createElement("td");
+        tdNombre.textContent = productos[i].nombre;
+        tr.appendChild(tdNombre);
+
+        let tdPrecio = document.createElement("td");
+        tdPrecio.textContent = productos[i].precio;
+        tr.appendChild(tdPrecio);
+
+        tabla.appendChild(tr);
+    }
+    document.querySelector("#btn-ej8").after(tabla);
+});
+
+
