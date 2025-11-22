@@ -217,4 +217,26 @@ botonTabla.addEventListener("click", () => {
     document.querySelector("#btn-ej8").after(tabla);
 });
 
+// 11.	Delegación de eventos: crear una lista <ul> que permita eliminar cualquier <li> al hacer clic sobre él, sin asignar eventos individualmente. Usa event.target dentro del listener del <ul>
 
+console.log("Ejercicio 9 (11.)\nDelegación de eventos");
+
+let listaEj9 = document.createElement("ul");
+
+// Se imprimen elementos li
+for (let i = 1; i <= 6; i++) {
+    let li = document.createElement("li");
+    li.textContent = "Elemento de lista " + i;
+
+    listaEj9.appendChild(li);
+}
+
+// Se ubica debajo del h3 de id="ej9"
+document.querySelector("#ej9").after(listaEj9);
+
+// Delegación de eventos. Detecta si se hizo click en un li para borrarlo
+listaEj9.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+        e.target.remove();
+    }
+});
