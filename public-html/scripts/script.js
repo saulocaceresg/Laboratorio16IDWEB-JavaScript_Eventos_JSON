@@ -240,3 +240,19 @@ listaEj9.addEventListener("click", (e) => {
         e.target.remove();
     }
 });
+
+// 12.	Animación con DOM y CSS: hacer que al presionar un botón, un cuadrado (<div>) se mueva horizontalmente usando classList.add("mover") y una animación CSS. Agrega un botón “Reiniciar” que quite la clase
+
+console.log("Ejercicio 10 (12.)\nAnimación con DOM y CSS");
+
+let botonMover = document.getElementById("btn-ej10");
+let botonReiniciar = document.getElementById("btn-ej10-reiniciar");
+let cuadrado = document.getElementById("cuadrado");
+
+botonMover.addEventListener("click", () => {
+    cuadrado.classList.add("mover");
+});
+
+botonReiniciar.addEventListener("click", () => {
+    cuadrado.classList.remove("mover");
+})

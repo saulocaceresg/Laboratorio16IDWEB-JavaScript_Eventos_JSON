@@ -2,3 +2,15 @@
     background-color: rgb(78, 75, 75);
     color: white;
 }
+#cuadrado {
+    max-width: 100px;
+    min-height: 100px;
+    border: 1px solid;
+    background-color: aquamarine;
+}
+
+/* Ejercicio 10 (12.) */
+.mover {
+    transform: translateX(1000%);
+    transition: transform 2s ease;
+}
