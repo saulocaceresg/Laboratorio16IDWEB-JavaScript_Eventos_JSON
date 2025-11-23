@@ -373,4 +373,35 @@ insertar.textContent = "Nombre: " + objetoJson.nombre;
 
 document.querySelector("#ej13").after(insertar);
 
+// 16.	Crea un arreglo de objetos productos (nombre, precio). Convierte a JSON y luego vuelve a objeto. Muestra los nombres en una lista <ul> generada dinámicamente
 
+console.log("Ejercicio 14 (16.)\nObjetos y lista dinámica");
+
+const productosArray = [
+    {nombre: "Monitor", precio: 500},
+    {nombre: "Mouse", precio: 20},
+    {nombre: "Tablet", precio: 700}
+];
+
+let arrayJson = JSON.stringify(productosArray);
+console.log(arrayJson);
+
+let objeto = JSON.parse(arrayJson);
+console.log(objeto);
+
+let ulEj14 = document.createElement("ul");
+
+for (let i = 0; i < objeto.length; i++) {
+    let texto = objeto[i].nombre + ": S/. " + objeto[i].precio;
+
+    let li = document.createElement("li");
+    li.textContent = texto;
+
+    ulEj14.appendChild(li);
+}
+
+let btnGenerarLista = document.getElementById("btn-ej14");
+
+btnGenerarLista.addEventListener("click", () => {
+    document.querySelector("#btn-ej14").after(ulEj14);
+});
