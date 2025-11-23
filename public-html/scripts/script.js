@@ -515,3 +515,30 @@ objetoJS.edad = 25;
 let jsonActualizado = JSON.stringify(objetoJS);
 
 console.log(jsonActualizado);
+
+// 20.	Cuando el usuario escriba su nombre en un <input> y haga clic en un botón, guarda los datos en un objeto, conviértelo a JSON y muéstralo en consola
+
+console.log("Ejercicio 18 (20.)\nInput y json");
+
+// Recoje el boton
+let botonGuardar = document.getElementById("btn-ej18");
+
+// Evento en el botón "Guardar"
+botonGuardar.addEventListener("click", () => {
+    let input = document.getElementById("nombre-ej18");
+    let nombreInput = input.value;
+
+    // Comprueba si está vacío
+    if (nombreInput === "") {
+        alert("INGRESE TEXTO.");
+    } else {
+        const objetoNombre = {nombre: nombreInput};
+        let nombreJson = JSON.stringify(objetoNombre);
+        console.log(nombreJson);
+        input.value = ""; // Limpia el input al final
+    }
+});
+
+
+
+
