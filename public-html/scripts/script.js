@@ -405,3 +405,26 @@ let btnGenerarLista = document.getElementById("btn-ej14");
 btnGenerarLista.addEventListener("click", () => {
     document.querySelector("#btn-ej14").after(ulEj14);
 });
+
+// 17.	Guarda un objeto JSON con datos de usuario (nombre, correo, rol) en localStorage. Luego recupéralo y muéstralo en pantalla
+
+console.log("Ejercicio 15 (17.)\nLocalStorage");
+
+const usuario = `{
+    "nombre": "Nabucodonosor",
+    "correo": "ndonosor@gmail.com",
+    "rol": "Rey de Babilonia"
+}`
+
+localStorage.setItem("usuario", usuario);
+
+const datos = JSON.parse(localStorage.getItem("usuario"));
+
+let texto = "Nombre: " + datos.nombre + "\nCorreo: " + datos.correo + "\nRol: " + datos.rol;
+let pre = document.createElement("pre");
+pre.textContent = texto;
+pre.style.fontFamily = "Times";
+
+document.querySelector("#ej15").after(pre);
+
+console.log(texto);
