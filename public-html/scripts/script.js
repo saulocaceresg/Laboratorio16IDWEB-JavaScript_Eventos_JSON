@@ -428,3 +428,66 @@ pre.style.fontFamily = "Times";
 document.querySelector("#ej15").after(pre);
 
 console.log(texto);
+
+// 18.	Define una variable con un JSON que simule una lista de libros. Parsea el JSON y genera una tabla con sus títulos y autores usando el DOM
+
+console.log("Ejercicio 15 (18.)\nJSON y DOM");
+
+// JSON
+const libros = `
+[
+    {
+        "titulo": "1984",
+        "autor": "George Orwell"
+    },
+    {
+        "titulo": "La amenaza de Andrómeda",
+        "autor": "Michael Crichton"
+    },
+    {
+        "titulo": "Nosotros",
+        "autor": "Yevgueni Zamiatín"
+    }
+]`;
+
+// Parseando
+let listaLibros = JSON.parse(libros);
+console.log(listaLibros);
+
+let botonMostrarLista = document.getElementById("btn-ej16");
+
+// Se crea la tabla al clickear el botón
+botonMostrarLista.addEventListener("click", () => {
+    let tablaLibros = document.createElement("table");
+    tablaLibros.setAttribute("border", 1);
+    let trHead = document.createElement("tr");
+    
+    // Cabeza de la tabla
+    let thTitulo = document.createElement("th");
+    thTitulo.textContent = "Título";
+    let thAutor = document.createElement("th");
+    thAutor.textContent = "Autor";
+
+    trHead.appendChild(thTitulo);
+    trHead.appendChild(thAutor);
+    tablaLibros.appendChild(trHead);
+
+    // Insertar tantas filas, con su contenido, como objetos hay en el json
+    for (let i = 0; i < listaLibros.length; i++) {
+        let tr = document.createElement("tr");
+
+        let tdTitulo = document.createElement("td");
+        tdTitulo.textContent = listaLibros[i].titulo;
+
+        let tdAutor = document.createElement("td");
+        tdAutor.textContent = listaLibros[i].autor;
+
+        tr.appendChild(tdTitulo);
+        tr.appendChild(tdAutor);
+
+        tablaLibros.appendChild(tr);
+    }
+
+    // Se ubica despúes del botón
+    document.querySelector("#btn-ej16").after(tablaLibros)
+});
