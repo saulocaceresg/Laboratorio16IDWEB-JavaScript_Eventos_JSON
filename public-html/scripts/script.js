@@ -570,11 +570,45 @@ btnMostrarTareas.addEventListener("click", () => {
         if (listaObj[i].estado === "Completa") {
             li.style.backgroundColor = "lightgreen";
         }
-        
+
         ul.appendChild(li);
     }
 
     document.querySelector("#btn-ej19").after(ul);
 });
 
+// 22.	Simulador de perfil
+// •	Crea un formulario con nombre, edad y país 
+// •	Al enviar, guarda los datos como JSON en localStorage
+// •	Si el usuario recarga la página, muestra el perfil guardado en pantalla
+
+console.log("Ejercicio 20 (22.)\nSimulador de perfil");
+
+let btnEnviar = document.getElementById("btn-ej20");
+
+// Evento para enviar datos
+btnEnviar.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre-ej20").value;
+    const edad = document.getElementById("edad-ej20").value;
+    const pais = document.getElementById("pais-ej20").value;
+    
+    const datosEj22 = {
+            nombre: nombre,
+            edad: edad,
+            pais: pais
+        };
+    // Guardando en localStorage como json convertido
+    localStorage.setItem("datosEj22", JSON.stringify(datosEj22));
+});
+
+// Detecta la recarga de la página
+const navigation = performance.getEntriesByType("navigation");
+const isReload = navigation.length > 0 && navigation[0].type === "reload";
+
+if (isReload) {
+    let datosRecuperados = JSON.parse(localStorage.getItem("datosEj22"));
+    console.log(datosRecuperados);
+}
 
