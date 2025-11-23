@@ -334,3 +334,18 @@ tableEj11.addEventListener("click", (e) => {
         }
     }
 });
+
+// 14.	Declara un objeto persona con nombre, edad y ciudad. Convierte el objeto a JSON con JSON.stringify() y muéstralo en consola
+
+console.log("Ejercicio 12 (14.)\nConvertir objeto a JSON");
+
+const persona = {
+    nombre: "Diosdado",
+    edad: 26,
+    ciudad: "Cvstodia"
+};
+
+let textoJSON = JSON.stringify(persona);
+
+console.log(textoJSON);
+
