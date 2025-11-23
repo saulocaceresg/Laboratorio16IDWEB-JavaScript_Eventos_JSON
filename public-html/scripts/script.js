@@ -431,7 +431,7 @@ console.log(texto);
 
 // 18.	Define una variable con un JSON que simule una lista de libros. Parsea el JSON y genera una tabla con sus títulos y autores usando el DOM
 
-console.log("Ejercicio 15 (18.)\nJSON y DOM");
+console.log("Ejercicio 16 (18.)\nJSON y DOM");
 
 // JSON
 const libros = `
@@ -491,3 +491,27 @@ botonMostrarLista.addEventListener("click", () => {
     // Se ubica despúes del botón
     document.querySelector("#btn-ej16").after(tablaLibros)
 });
+
+// 19.	Convierte un objeto JSON en objeto JS, modifica un valor (por ejemplo: edad o precio), y vuelve a convertirlo a JSON actualizado
+
+console.log("Ejercicio 17 (19.)\nModificando un objeto JSON");
+
+const objetoJsonEj17 = `{
+        "nombre": "Jimmy",
+        "edad": "15",
+        "rol": "estudiante"
+    }`;
+
+console.log(objetoJsonEj17);
+
+// Convirtiendo a js
+let objetoJS = JSON.parse(objetoJsonEj17);
+
+// Modificando valor "edad"
+objetoJS.edad = 25;
+
+// Volviendo a convertir
+
+let jsonActualizado = JSON.stringify(objetoJS);
+
+console.log(jsonActualizado);
