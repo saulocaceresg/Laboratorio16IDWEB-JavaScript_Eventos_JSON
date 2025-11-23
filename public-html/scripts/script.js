@@ -349,3 +349,28 @@ let textoJSON = JSON.stringify(persona);
 
 console.log(textoJSON);
 
+// 15.	Declara una cadena JSON y conviértela en objeto con JSON.parse(). Muestra uno de sus valores en el DOM (por ejemplo, dentro de un <p>)
+
+console.log("Ejercicio 13 (15.)\nConvertir JSON a objeto");
+
+const cadenaJson = `
+{
+    "nombre": "Juan",
+    "edad": "24",
+    "ciudad": "Arequipa",
+    "habilidades": [
+        "disciplina",
+        "proactivo",
+        "paciencia"
+    ]
+}`;
+
+let objetoJson = JSON.parse(cadenaJson);
+console.log(objetoJson);
+
+let insertar = document.createElement("p");
+insertar.textContent = "Nombre: " + objetoJson.nombre;
+
+document.querySelector("#ej13").after(insertar);
+
+
