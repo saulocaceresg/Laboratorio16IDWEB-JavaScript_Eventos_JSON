@@ -539,6 +539,42 @@ botonGuardar.addEventListener("click", () => {
     }
 });
 
+// 21.	Define un JSON con una lista de tareas (título, completada). Crea dinámicamente una lista en el DOM que muestre el estado de cada tarea (por ejemplo, con color verde si está completada)
 
+console.log("Ejercicio 19 (21.)\nLista de tareas con JSON");
+
+// Definiendo la lista
+let listaJson = `[
+        {"titulo": "Crear un acelerador de partículas", "estado": "Incompleta"},
+        {"titulo": "Perpetuar la entropía", "estado": "Completa"},
+        {"titulo": "Acelerar la gravedad", "estado": "Incompleta"},
+        {"titulo": "Otorgar consciencia a ChatGPT", "estado": "Completa"}
+    ]`;
+
+let btnMostrarTareas = document.getElementById("btn-ej19");
+
+btnMostrarTareas.addEventListener("click", () => {
+    // Se transforma el json a objeto js
+    let listaObj = JSON.parse(listaJson);
+    console.log(listaObj);
+
+    let ul = document.createElement("ul");
+
+    // Se crean los li según la cantidad de elementos en el objeto
+    for (let i = 0; i < listaObj.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = listaObj[i].titulo;
+        li.style.width = "400px";
+        
+        // Pinta de verde si está completa
+        if (listaObj[i].estado === "Completa") {
+            li.style.backgroundColor = "lightgreen";
+        }
+        
+        ul.appendChild(li);
+    }
+
+    document.querySelector("#btn-ej19").after(ul);
+});
 
 
