@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratorio 16 | JavaScript - DOM: Eventos</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        img {
-            width: 150px;
-            height: 200px;
-        }
-    </style>
 </head>
 <body class="oscuro">
     
@@ -70,6 +64,26 @@
     <div id="cuadrado"></div>
     <button id="btn-ej10">Mover horizontalmente</button>
     <button id="btn-ej10-reiniciar">Reiniciar</button>
+
+    <!-- Ejercicio 11 (13.) -->
+    <h3 id="ej11">Ejercicio 11 - Interfaz CRUD</h3>
+    <form action="#" id="frm-ej11">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre-ej11" required>
+
+        <label for="edad-ej11">Edad: </label>
+        <input type="number" name="edad" id="edad-ej11" min="0" max="100" required style="width: 60px;">
+
+        <button id="btn-ej11-agregar">Agregar usuario</button>
+    </form>
+    <br>
+    <table border="1" id="table-ej11">
+        <tr>
+            <th id="td-nombre">Nombre</th>
+            <th id="td-edad">Edad</th>
+            <th id="accion">Acción</th>
+        </tr>
+    </table>
 
     <script src="scripts/script.js"></script>
 </body>

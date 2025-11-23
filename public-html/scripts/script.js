@@ -256,3 +256,81 @@ botonMover.addEventListener("click", () => {
 botonReiniciar.addEventListener("click", () => {
     cuadrado.classList.remove("mover");
 })
+
+// 13.	Construir una pequeña interfaz CRUD (Crear, Leer, Actualizar y Eliminar)
+// •	Formulario para añadir usuarios (nombre, edad)
+// •	Tabla que muestra los usuarios agregados
+// •	Botones de editar y eliminar por fila
+// •	Usa querySelector, appendChild, dataset y event delegation
+
+console.log("Ejercicio 11 (13.)\nInterfaz CRUD");
+
+let btnAgregar = document.getElementById("btn-ej11-agregar");
+let tableEj11 = document.getElementById("table-ej11");
+let nombreEj11 = document.getElementById("nombre-ej11");
+let edad = document.getElementById("edad-ej11");
+
+btnAgregar.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    let tr = document.createElement("tr");
+
+    if ((nombreEj11.value === "" || edad === "") || (nombreEj11.value === "" && edad === "")) {
+        alert("DATO VACÍO\nINGRESE DE NUEVO.");
+    } else if (edad.value > 100 || edad.value < 0) {
+        alert("EDAD NO VÁLIDA.\nINGRESE DE NUEVO.");
+    } else {
+        let tdNombre = document.createElement("td");
+        tdNombre.setAttribute("data-nombre", "nombre");
+        tdNombre.textContent = nombreEj11.value;
+
+        let tdEdad = document.createElement("td");
+        tdEdad.setAttribute("data-edad", "edad");
+        tdEdad.textContent = edad.value;
+
+        let tdAcciones = document.createElement("td");
+        
+        let btnEditar = document.createElement("button");
+        btnEditar.setAttribute("data-accion", "editar");
+        btnEditar.textContent = "Editar";
+
+        let btnEliminar = document.createElement("button");
+        btnEliminar.setAttribute("data-accion", "eliminar");
+        btnEliminar.textContent = "Eliminar";
+
+        tdAcciones.appendChild(btnEditar);
+        tdAcciones.appendChild(btnEliminar);
+
+        tr.appendChild(tdNombre);
+        tr.appendChild(tdEdad);
+        tr.appendChild(tdAcciones);
+
+        tableEj11.appendChild(tr);
+
+        nombreEj11.value = ""
+        edad.value = ""
+    }
+});
+
+tableEj11.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.dataset.accion === "eliminar") {
+        e.target.closest("tr").remove();
+    }
+
+    if (e.target.dataset.accion === "editar") {
+        const fila = e.target.closest("tr");
+        const celdaNombre = fila.querySelector('[data-nombre="nombre"]');
+        const celdaEdad = fila.querySelector('[data-edad="edad"]');
+
+        let nuevoNombre = prompt("Ingrese nuevo nombre:", celdaNombre.textContent);
+        let nuevaEdad = prompt("Ingrese nueva edad:", celdaEdad.textContent);
+
+        if (nuevoNombre !== null && nuevaEdad !== null) {
+            celdaNombre.textContent = nuevoNombre;
+            celdaEdad.textContent = nuevaEdad;
+        }
+    }
+});

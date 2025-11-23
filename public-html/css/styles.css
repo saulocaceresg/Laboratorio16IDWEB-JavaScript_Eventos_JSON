@@ -1,3 +1,7 @@
+img { /* Ejercicio 7 */
+    width: 150px;
+    height: 200px;
+}
 .oscuro {
     background-color: rgb(78, 75, 75);
     color: white;
@@ -13,4 +17,18 @@
 .mover {
     transform: translateX(1000%);
     transition: transform 2s ease;
+}
+
+#td-nombre {
+    min-width: 300px;
+}
+#accion {
+    min-width: 160px;
+}
+td:nth-child(1) {
+    padding-left: 10px;
+}
+td:nth-child(2), td:nth-child(3) {
+    min-width: 70px;
+    text-align: center;
 }
